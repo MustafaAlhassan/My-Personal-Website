@@ -41,7 +41,7 @@ ul {
   padding: 0;
   list-style: none;
 }
-/* Componants */
+/* Start Componants */
 .section-title {
   margin: 0 auto;
   padding: 20px 0 0;
@@ -59,7 +59,8 @@ ul {
   left: 0;
   bottom: 0;
 }
-/* Componants */
+/* End Componants */
+/* Start Navigation Bar */
 nav .container {
   display: flex;
   justify-content: space-between;
@@ -72,11 +73,30 @@ nav .container {
 }
 nav .logo {
   margin: 0;
-  font-size: 20px;
+  font-size: 30px;
   color: var(--blue-color);
-  height: 40px;
-  display: flex;
-  align-items: center;
+  padding: 10px 0;
+  position: relative;
+  width: fit-content;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 2px var(--blue-color);
+}
+nav .logo::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  -webkit-text-fill-color: var(--blue-color);
+  width: 0;
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+nav .logo:hover::before {
+  width: 100%;
 }
 nav ul {
   display: flex;
@@ -99,6 +119,8 @@ nav ul li {
 nav ul li a:hover {
   color: var(--blue-color);
 }
+/* Start Navigation Bar */
+/* Start Home Page */
 main {
   height: calc(100vh - 60px);
   background-color: var(--light-gray-color);
@@ -107,24 +129,32 @@ main .container {
   height: 100%;
   display: flex;
   justify-content: space-evenly;
-  align-items: center; 
+  align-items: center;
 }
 @media (max-width: 767px) {
   main .container {
     flex-direction: column;
   }
 }
-main h2 {
-  margin: 0;
-  font-size: 20px;
+main .container div {
   background-color: var(--blue-color);
   padding: 10px 20px;
-  color: white;
   border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
+}
+main .container div h2 {
+  margin: 0;
+  font-size: 20px;
+  width: 330px;
+  color: white;
+  border-right: 2px solid rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: control-width 1.5s 1s steps(22) both, blink 0.5s infinite;
+  -webkit-animation: control-width 1.5s 1s steps(22) both, blink 0.5s infinite;
 }
 main img {
   width: 300px;
@@ -136,6 +166,8 @@ main img {
   -ms-border-radius: 10%;
   -o-border-radius: 10%;
 }
+/* End Home Page */
+/* Start About Me */
 section.about-me .container {
   padding-top: 30px;
   padding-bottom: 50px;
@@ -191,6 +223,8 @@ section.about-me .container table tbody tr td:first-child {
   font-size: 18px;
   background-color: var(--light-gray-color);
 }
+/* End About Me */
+/* Start Portfolio */
 section.portfolio {
   background-color: var(--light-gray-color);
 }
@@ -205,7 +239,7 @@ section.portfolio .container .box {
   background-color: white;
   text-align: center;
   box-shadow: 0 5px 5px #b3b3b3;
-  padding: 15px;  
+  padding: 15px;
   border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -225,6 +259,8 @@ section.portfolio .container .box a {
   text-decoration: none;
   color: var(--blue-color);
 }
+/* Start Portfolio */
+/* Start Footer */
 footer {
   background-color: var(--blue-color);
   padding: 20px 0;
@@ -319,3 +355,22 @@ footer .container form input[type="submit"] {
 footer .container form input[type="submit"]:hover {
   background-color: #1594fc;
 }
+/* End Footer */
+/* Start Animation */
+@keyframes control-width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 330px;
+  }
+}
+@keyframes blink {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.3);
+  }
+  to {
+    border-right-color: rgba(255, 255, 255, 0.8);
+  }
+}
+/* End Animation */
